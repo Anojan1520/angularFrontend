@@ -1,0 +1,33 @@
+<div class="container shadow p-3 mb-5  rounded mt-5" style="background-color:rgba(0, 132, 255, 0.123);">
+  <div class="p-3">
+    <div class="row">
+      <div class="col-3">
+        <input type="text" class="form-control" placeholder="Search task..">
+      </div>
+      <div class="col-3 offset-6 pt-1">
+        <button type="button" class="btn btn-sm btn-dark">+ New Task</button>
+      </div>
+    </div>
+    <table class="table mt-3">
+      <thead>
+        <tr  class="fs-5">
+          <th scope="col" class="border border-secondary-subtle">Id</th>
+          <th scope="col" class="border border-secondary-subtle">Title</th>
+          <th scope="col" class="border border-secondary-subtle">Description</th>
+          <th scope="col" class="border border-secondary-subtle">DueDate</th>      
+          <th scope="col" class="border border-secondary-subtle">Priority</th>      
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of Tasks" class="fs-5 ">
+            <th scope="row" class="border border-secondary-subtle fw-normal">{{item.id}}</th>
+            <th scope="row" class="border border-secondary-subtle fw-normal">{{item.title}}</th>
+            <th scope="row" class="border border-secondary-subtle fw-normal">{{item.description}}</th>
+            <th scope="row" class="border border-secondary-subtle fw-normal">{{item.duedate}}</th>
+            <th scope="row" class="border border-secondary-subtle fw-normal">{{item.priority}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+</div>
