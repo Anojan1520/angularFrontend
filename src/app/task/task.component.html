@@ -2,10 +2,10 @@
   <div class="p-3">
     <div class="row">
       <div class="col-3">
-        <input type="text" class="form-control" placeholder="Search task..">
+        <input type="text" class="form-control" placeholder="Search task.." [(ngModel)]="Search">
       </div>
       <div class="col-3 offset-6 pt-1">
-        <button type="button" class="btn btn-sm btn-dark">+ New Task</button>
+        <button type="button" class="btn btn-sm btn-dark fs-6"[routerLink]="['/form']">+ New Task</button>
       </div>
     </div>
     <table class="table mt-3">
@@ -16,15 +16,17 @@
           <th scope="col" class="border border-secondary-subtle">Description</th>
           <th scope="col" class="border border-secondary-subtle">DueDate</th>      
           <th scope="col" class="border border-secondary-subtle">Priority</th>      
+          <th scope="col" class="border border-secondary-subtle">Action</th>      
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of Tasks" class="fs-5 ">
+        <tr *ngFor="let item of Tasks | taskFilter : Search" class="fs-5 ">
             <th scope="row" class="border border-secondary-subtle fw-normal">{{item.id}}</th>
             <th scope="row" class="border border-secondary-subtle fw-normal">{{item.title}}</th>
             <th scope="row" class="border border-secondary-subtle fw-normal">{{item.description}}</th>
             <th scope="row" class="border border-secondary-subtle fw-normal">{{item.duedate}}</th>
             <th scope="row" class="border border-secondary-subtle fw-normal">{{item.priority}}</th>
+            <th scope="row" class="border border-secondary-subtle fw-normal"><button class="btn tableButton" ><i class="bi bi-pencil-square text-primary fs-4"></i></button><button class="btn tableButton" (click)="DeleteTask(item.id)"><i class="bi bi-x-lg text-danger fs-4"></i></button></th>
         </tr>
       </tbody>
     </table>

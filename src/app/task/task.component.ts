@@ -9,7 +9,9 @@ import { TaskServiceService } from '../task-service.service';
 export class TaskComponent implements OnInit {
 
   Tasks:any[]=[];
+  Search:string='';
 
+  
   constructor(private task:TaskServiceService){
 
   }
@@ -19,5 +21,12 @@ export class TaskComponent implements OnInit {
       console.log(p)
     })
   }
+  DeleteTask(id:string){
+    return this.task.DeleteData(id).subscribe((d:any)=>{
+      alert('Deleted Successfully')
+      window.location.reload();
+    })
+  }
+
 
 }

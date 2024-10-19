@@ -1,32 +1,47 @@
 <div class="container">
     <div class="row">
         <div class="col-5 offset-4 mt-5">
-            <form style="width: 400px;" [formGroup]="TaskForm">
+            <form style="width: 400px;" [formGroup]="TaskForm" (ngSubmit)="FormSubmited(TaskForm)">
                 <h3 class="text-danger">Add New Task</h3>
                 <div class="mb-3">
                     <label class="form-label">Title</label>
-                    <input type="text" class="form-control" formControlName="Title">
+                    <input type="text" class="form-control" formControlName="title">
+                    <div class="" *ngIf="TaskForm.controls['title'].touched">
+                        <p class="text-danger" *ngIf="TaskForm.controls['title'].hasError('required')">This Field is required</p>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" >Description</label>
-                    <input type="text" class="form-control" formControlName="describe">
+                    <input type="text" class="form-control" formControlName="description">
+                    <div class="" *ngIf="TaskForm.controls['description'].touched">
+                        <p class="text-danger" *ngIf="TaskForm.controls['description'].hasError('required')">This Field is required</p>
+
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">DueDate</label>
-                    <input type="date" class="form-control" formControlName="DueDate">
+                    <input type="date" class="form-control" formControlName="duedate" date> 
+                    <div class="" *ngIf="TaskForm.controls['duedate'].touched">
+                        <p class="text-danger" *ngIf="TaskForm.controls['duedate'].hasError('required')">This Field is required</p>
+
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Priority</label><br>
-                    <select name="Priority" class="form-control" formControlName="Priority">
+                    <select name="Priority" class="form-control" formControlName="priority">
                         <option value="">Select Your Priority</option>
-                        <option value="1">High</option>
-                        <option value="1">Medium</option>
-                        <option value="1">Low</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
                     </select>
+                    <div class="" *ngIf="TaskForm.controls['priority'].touched">
+                        <p class="text-danger" *ngIf="TaskForm.controls['priority'].hasError('')">This Field is required</p>
+
+                    </div>
                 </div>
         
-                <button type="submit" class="btn btn-primary btn-sm me-3">Submit</button>
-                <button type="submit" class="btn btn-secondary btn-sm">Cancel</button>
+                <button type="submit" class="btn btn-primary btn-sm me-3" [disabled]="TaskForm.invalid">Submit</button>
+                <button type="reset" class="btn btn-secondary btn-sm">Cancel</button>
             </form>
         </div>
     </div>

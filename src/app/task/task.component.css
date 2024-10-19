@@ -1,0 +1,7 @@
+.tableButton{
+    background-color: none;
+
+}
+.tableButton:hover{
+    background-color: rgba(10, 111, 212, 0.101);
+}

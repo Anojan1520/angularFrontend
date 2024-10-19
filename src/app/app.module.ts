@@ -9,12 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TaskFilterPipe } from './task-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
-    FormComponent
+    FormComponent,
+    TaskFilterPipe
   ],
   imports: [
     BrowserModule,
