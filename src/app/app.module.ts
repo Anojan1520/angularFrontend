@@ -13,6 +13,9 @@ import { TaskFilterPipe } from './task-filter.pipe';
 import { EditComponent } from './edit/edit.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserComponent } from './user/user.component';
+import { UserFilterPipe } from './user-filter.pipe';
+import { UserformComponent } from './userform/userform.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TaskComponent,
     FormComponent,
     TaskFilterPipe,
-    EditComponent
+    EditComponent,
+    UserComponent,
+    UserFilterPipe,
+    UserformComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

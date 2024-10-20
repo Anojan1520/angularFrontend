@@ -1,0 +1,36 @@
+<div class="container shadow p-3 mb-5  rounded mt-5" style="background-color:rgba(0, 132, 255, 0.123);">
+    <div class="p-3">
+      <div class="row">
+        <div class="col-3">
+          <input type="text" class="form-control" placeholder="Search user.." [(ngModel)]="Search">
+        </div>
+        <div class="col-3 offset-6 pt-1">
+          <button type="button" class="btn btn-sm btn-dark fs-6"[routerLink]="['/user-form','id']">+ New User</button>
+        </div>
+      </div>
+      <table class="table mt-3">
+        <thead>
+          <tr  class="fs-5">
+            <th scope="col" class="border border-secondary-subtle">Id</th>
+            <th scope="col" class="border border-secondary-subtle">Name</th>
+            <th scope="col" class="border border-secondary-subtle">Email</th>
+            <th scope="col" class="border border-secondary-subtle">Phone-no</th>      
+            <th scope="col" class="border border-secondary-subtle">Address</th>      
+            <th scope="col" class="border border-secondary-subtle">Action</th>      
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of Users | userFilter : Search" class="fs-5 ">
+              <th scope="row" class="border border-secondary-subtle fw-normal">{{item.id}}</th>
+              <th scope="row" class="border border-secondary-subtle fw-normal">{{item.name}}</th>
+              <th scope="row" class="border border-secondary-subtle fw-normal">{{item.email}}</th>
+              <th scope="row" class="border border-secondary-subtle fw-normal">{{item.phoneNumber}}</th>
+              <th scope="row" class="border border-secondary-subtle fw-bold" [ngStyle]="{'color': item.priority === 'High' ? 'green' : item.priority==='Medium' ? 'orange' : 'red' }" >{{item.address}}</th>
+              <th scope="row" class="border border-secondary-subtle fw-normal"><button class="btn tableButton" ><i class="bi bi-pencil-square text-primary fs-4" (click)=" editUser(item.id)" ></i></button><button class="btn tableButton" (click)="DeleteUser(item.id)"><i class="bi bi-x-lg text-danger fs-4"></i></button></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   
+  </div>
+  
