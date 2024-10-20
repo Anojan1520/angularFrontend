@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskServiceService } from '../task-service.service';
+import { Task, TaskServiceService } from '../task-service.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task',
@@ -8,25 +10,35 @@ import { TaskServiceService } from '../task-service.service';
 })
 export class TaskComponent implements OnInit {
 
-  Tasks:any[]=[];
+  Tasks:Task[]=[];
   Search:string='';
 
   
-  constructor(private task:TaskServiceService){
+  constructor(private task:TaskServiceService,private router:Router,private toaster : ToastrService){
 
   }
   ngOnInit():any{
-    return this.task.GetData().subscribe((p:any)=>{
+    this.getAlltask();
+  }
+
+  getAlltask(){
+     this.task.GetTask().subscribe((p:any)=>{
       this.Tasks=p;
       console.log(p)
-    })
+    }) 
   }
   DeleteTask(id:string){
-    return this.task.DeleteData(id).subscribe((d:any)=>{
-      alert('Deleted Successfully')
-      window.location.reload();
+    return this.task.DeleteTask(id).subscribe((d:any)=>{
+      this.toaster.success('Deleted Succesfully', '', {
+        timeOut: 3000,
+      })
+      this.getAlltask()
     })
   }
+  editTask(id:any){
+    this.router.navigate(['edit/'+id])
+  }
+
 
 
 }

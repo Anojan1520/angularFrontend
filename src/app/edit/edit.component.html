@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-5 offset-4 mt-5">
-            <form style="width: 400px;" [formGroup]="TaskForm" (ngSubmit)="FormSubmited(TaskForm)" class="shadow p-3 mb-5 bg-body-tertiary rounded">
-                <h3 class="text-danger">Add New Task</h3>
+            <form style="width: 400px;" [formGroup]="TaskForm" (ngSubmit)="EditSubmit(TaskForm)" class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                <h3 class="text-danger">Update Task</h3>
                 <div class="mb-3">
                     <label class="form-label">Title</label>
                     <input type="text" class="form-control" formControlName="title">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
         
-                <button type="submit" class="btn btn-primary btn-sm me-3" [disabled]="TaskForm.invalid">Submit</button>
+                <button type="submit" class="btn btn-primary btn-sm me-3" [disabled]="TaskForm.invalid">Update</button>
                 <button type="reset" class="btn btn-secondary btn-sm" [routerLink]="['/']">Cancel</button>
             </form>
         </div>

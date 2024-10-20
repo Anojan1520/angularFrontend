@@ -9,15 +9,32 @@ export class TaskServiceService {
 
   constructor(private http:HttpClient) { }
 
-  Url:string='https://localhost:7200/api/TaskItems'
-   GetData(){
-    return this.http.get<any[]>(this.Url)
+  Url:string='http://localhost:5052/api/TaskItems';
+
+   GetTask(){
+    return this.http.get<Task[]>(this.Url)
    }
-   PostData(data:FormGroup){
+   PostTask(data:FormGroup){
     return this.http.post(this.Url,data)
    }
-   DeleteData(data:string){
+   DeleteTask(data:string){
     return this.http.delete(this.Url+'/'+data)
    }
+   GetTaskById(data:string){
+    return this.http.get<Task[]>(this.Url+'/'+data)
+   }
+   UpdateData(data:any){
+    return this.http.put(this.Url+'/'+data.id,data)
+   }
 
+
+
+}
+
+export interface Task{
+  id:number,
+  title:string,
+  duedate:string,
+  description:string,
+  priority:string,
 }

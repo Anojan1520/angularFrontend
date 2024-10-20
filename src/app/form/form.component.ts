@@ -26,7 +26,7 @@ export class FormComponent {
 
   FormSubmited(FormData:FormGroup){
     console.log(FormData.value)
-       this.taskService.PostData(FormData.value).subscribe(d=>{
+       this.taskService.PostTask(FormData.value).subscribe(d=>{
         alert("Task added Succesfully")
         this.router.navigate(['/'])
        })
