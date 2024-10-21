@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-5 offset-4 mt-5">
             <form style="width: 400px;" [formGroup]="userForm" (ngSubmit)="FormSubmited(userForm)" class="shadow p-3 mb-5 bg-body-tertiary rounded">
-                <h3 class="text-danger">Add New User</h3>
+                <h3 class="text-danger">{{title}}</h3>
                 <div class="mb-3">
                     <label class="form-label">Name</label>
                     <input type="text" class="form-control" formControlName="name">
@@ -28,9 +28,9 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Phone-no</label>
-                    <input type="number" class="form-control" formControlName="phone" date> 
-                    <div class="" *ngIf="userForm.controls['phone'].touched">
-                        <p class="text-danger" *ngIf="userForm.controls['phone'].hasError('required')">This Field is required</p>
+                    <input type="text" class="form-control" formControlName="phoneNumber" date> 
+                    <div class="" *ngIf="userForm.controls['phoneNumber'].touched">
+                        <p class="text-danger" *ngIf="userForm.controls['phoneNumber'].hasError('required')">This Field is required</p>
 
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
         
-                <button type="submit" class="btn btn-primary btn-sm me-3" [disabled]="userForm.invalid">Submit</button>
+                <button type="submit" class="btn btn-primary btn-sm me-3" >Submit</button>
                 <button type="reset" class="btn btn-secondary btn-sm" [routerLink]="['/']">Cancel</button>
             </form>
         </div>

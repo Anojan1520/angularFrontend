@@ -10,7 +10,8 @@ const routes: Routes = [{path:'',component:TaskComponent}
     ,{path:'form',component:FormComponent},
     {path:'edit/:id',component:EditComponent},
     {path:'user',component:UserComponent},
-    {path:'user-form/:id',component:UserformComponent}
+    {path:'user-form/:id',component:UserformComponent},
+    {path:'user-form',component:UserformComponent}
 ];
 
 @NgModule({

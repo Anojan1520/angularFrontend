@@ -20,7 +20,7 @@ export class UserService {
    DeleteUser(data:string){
     return this.http.delete(this.Url+'/'+data)
    }
-   GetUserById(data:string){
+   GetUserById(data:any){
     return this.http.get<any[]>(this.Url+'/'+data)
    }
    UpdateData(data:any){
