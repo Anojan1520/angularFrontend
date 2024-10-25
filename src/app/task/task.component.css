@@ -8,3 +8,7 @@
     background-color: rgba(10, 111, 212, 0.101);
 }
 
+.custom-table {
+    border-radius: 10px; 
+    overflow: hidden; 
+}
