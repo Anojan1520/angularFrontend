@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './user/user.component';
 import { UserFilterPipe } from './user-filter.pipe';
 import { UserformComponent } from './userform/userform.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserformComponent } from './userform/userform.component';
     EditComponent,
     UserComponent,
     UserFilterPipe,
-    UserformComponent
+    UserformComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

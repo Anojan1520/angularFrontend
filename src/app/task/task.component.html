@@ -11,13 +11,14 @@
     <table class="table mt-3 custom-table">
       <thead>
         <tr class="fs-5">
-          <td colspan="6" class="text-center text-white bg-primary">
+          <td colspan="7" class="text-center text-white bg-primary">
             TASK INFORMATION
 
           </td>
         </tr>
         <tr class="fs-5">
           <th scope="col" class="border-left-right border-primary-subtle">Id</th>
+          <th scope="col" class="border-left-right border-primary-subtle">User</th>
           <th scope="col" class="border-left-right border-primary-subtle">Title</th>
           <th scope="col" class="border-left-right border-primary-subtle">Description</th>
           <th scope="col" class="border-left-right border-primary-subtle">DueDate</th>
@@ -28,6 +29,7 @@
       <tbody>
         <tr *ngFor="let item of Tasks | taskFilter : Search" class="fs-5 ">
           <th scope="row" class="border-left-right fw-normal ">{{item.id}}</th>
+          <th scope="row" class="border-left-right fw-normal ">{{item.assignee.name}}</th>
           <th scope="row" class="border-left-right fw-normal">{{item.title}}</th>
           <th scope="row" class="border-left-right fw-normal">{{item.description}}</th>
           <th scope="row" class="border-left-right fw-normal">{{item.duedate | date:'dd-MM-yyyy'}}</th>

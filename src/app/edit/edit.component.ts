@@ -23,7 +23,8 @@ export class EditComponent implements OnInit {
       title:['',[Validators.required]],
       duedate:['',[Validators.required]],
       description:['',[Validators.required]],
-      priority:['',[Validators.required]]
+      priority:['',[Validators.required]],
+      assigneeId:['',[Validators.required]]
      })
   }
 
@@ -39,7 +40,9 @@ export class EditComponent implements OnInit {
          duedate:formatedDte,
          title:d.title,
          description:d.description,
-         priority:d.priority
+         priority:d.priority,
+         assigneeId:d.assigneeId
+         
       }
         console.log(obj)
       this.TaskForm.setValue(obj);

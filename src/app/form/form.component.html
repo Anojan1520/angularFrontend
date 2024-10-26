@@ -1,18 +1,18 @@
 <div class="container">
     <div class="row">
-        <div class="col-5 offset-4 mt-5">
-            <form style="width: 400px;" [formGroup]="TaskForm" (ngSubmit)="FormSubmited(TaskForm)" class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div class="col-5 offset-3 mt-5">
+            <form style="width: 600px;" [formGroup]="TaskForm" (ngSubmit)="FormSubmited(TaskForm)" class="shadow p-3 mb-5 bg-body-tertiary rounded">
                 <h3 class="text-danger">Add New Task</h3>
                 <div class="mb-3">
                     <label class="form-label">Title</label>
-                    <input type="text" class="form-control" formControlName="title">
+                    <input type="text" class="form-control p-2" formControlName="title">
                     <div class="" *ngIf="TaskForm.controls['title'].touched">
                         <p class="text-danger" *ngIf="TaskForm.controls['title'].hasError('required')">This Field is required</p>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" >Description</label>
-                    <input type="text" class="form-control" formControlName="description">
+                    <input type="text" class="form-control p-2" formControlName="description">
                     <div class="" *ngIf="TaskForm.controls['description'].touched">
                         <p class="text-danger" *ngIf="TaskForm.controls['description'].hasError('required')">This Field is required</p>
 
@@ -20,7 +20,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">DueDate</label>
-                    <input type="date" class="form-control" formControlName="duedate" date> 
+                    <input type="date" class="form-control p-2" formControlName="duedate" date> 
                     <div class="" *ngIf="TaskForm.controls['duedate'].touched">
                         <p class="text-danger" *ngIf="TaskForm.controls['duedate'].hasError('required')">This Field is required</p>
 
@@ -28,11 +28,22 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Priority</label><br>
-                    <select name="Priority" class="form-control" formControlName="priority">
+                    <select name="Priority" class="form-control p-2 " formControlName="priority">
                         <option value="">Select Your Priority</option>
                         <option value="High">High</option>
                         <option value="Medium">Medium</option>
                         <option value="Low">Low</option>
+                    </select>
+                    <div class="" *ngIf="TaskForm.controls['priority'].touched">
+                        <p class="text-danger" *ngIf="TaskForm.controls['priority'].hasError('')">This Field is required</p>
+
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">User</label><br>
+                    <select name="Priority" class="form-control p-2" formControlName="assigneeId">
+                        <option value="">Select User</option>
+                        <option *ngFor="let item of Users" value="{{item.id}}">{{item.name}}</option>
                     </select>
                     <div class="" *ngIf="TaskForm.controls['priority'].touched">
                         <p class="text-danger" *ngIf="TaskForm.controls['priority'].hasError('')">This Field is required</p>

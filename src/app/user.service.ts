@@ -28,3 +28,19 @@ export class UserService {
    }
 
 }
+
+export interface Address {
+  id:number;
+  addressLine1: string;
+  addressLine2?: string;
+  city: string;
+}
+
+export interface UserForm {
+  id:number;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  password: string;
+  address: Address;
+}

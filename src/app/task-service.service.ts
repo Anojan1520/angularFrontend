@@ -37,4 +37,5 @@ export interface Task{
   duedate:string,
   description:string,
   priority:string,
+  User:string
 }

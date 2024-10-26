@@ -11,7 +11,7 @@
       <table class="table mt-3 custom-table">
         <thead>
           <tr class="fs-5">
-            <td colspan="6" class="text-center text-white bg-primary">
+            <td colspan="7" class="text-center text-white bg-primary">
             USER INFORMATION
             </td>
           </tr>
@@ -21,6 +21,7 @@
             <th scope="col" class="border-primary-subtle">Email</th>
             <th scope="col" class="border-primary-subtle">Phone-no</th>      
             <th scope="col" class="border-primary-subtle">Address</th>      
+            <th scope="col" class="border-primary-subtle">Tasks</th>      
             <th scope="col" class="border-primary-subtle">Action</th>      
           </tr>
         </thead>
@@ -30,7 +31,8 @@
               <td scope="row" class="border-left-right border-primary-subtle">{{item.name}}</td>
               <td scope="row" class="border-left-right border-primary-subtle">{{item.email}}</td>
               <td scope="row" class="border-left-right border-primary-subtle">{{item.phoneNumber}}</td>
-              <td scope="row" class="border-left-right border-primary-subtle">{{item.address}}</td>
+              <td scope="row" class="border-left-right border-primary-subtle">{{item.address?.addressLine1}} {{item.address?.addressLine2}} {{item.address?.city}}</td>
+              <td scope="row" class="border-left-right border-primary-subtle">{{item.task.length}}</td>
               <td scope="row" class="border-left-right border-primary-subtle"><button class="btn tableButton" ><i class="bi bi-pencil-square text-primary fs-4" [routerLink]="['/user-form/',item.id]" ></i></button><button class="btn tableButton" (click)="DeleteUser(item.id)"><i class="bi bi-x-lg text-danger fs-4"></i></button></td>
           </tr>
         </tbody>
