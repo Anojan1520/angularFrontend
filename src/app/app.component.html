@@ -1,17 +1,37 @@
-<div style="background-color:rgba(147, 143, 143, 0.123); min-height: 100vh;">
+<div class="container-fluid" style="background-color:rgba(147, 143, 143, 0.123); ">
     <!-- As a link -->
-    <nav class="navbar bg-dark">
-        <div class="container">
-            <div>
-                <h3 class="text-light">Tasks Manager</h3>
-            </div>
-            <div>
-                <a class="navbar-brand text-light" [routerLink]="['user']">Users</a>
-                <a class="navbar-brand text-light" [routerLink]="['/']">Tasks</a>
+    <nav class="pt-2 bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 pt-2">
+                    <h3 class="text-light ms-1">Unicom <i>Tic</i></h3>
+                </div>
+                <div class="col-3 offset-6  d-flex justify-content-between align-items-center">
+                    <input type="text" class="form-control me-3" placeholder="Search here..">
+                    <button class="btn btn-sm btn-outline-success fs-5">Search</button>
+                  </div>
             </div>
         </div>
+
+        <hr>
     </nav>
-
-
-    <router-outlet></router-outlet>
+    <div class="row">
+        <div class="col-2">
+            <nav class=" bg-dark" style="min-height: 92vh;">
+                <div class="container">
+                    <div>
+                        <h3 class="text-light">Tasks Manager</h3>
+                        <hr class="text-light">
+                    </div>
+                    <div class="row">
+                        <a class=" text-light fs-5 col-12 ms-4" [routerLink]="['user']">Users</a>
+                        <a class=" text-light fs-5 col-12 ms-4" [routerLink]="['/']">Tasks</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
