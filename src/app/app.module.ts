@@ -17,6 +17,8 @@ import { UserComponent } from './user/user.component';
 import { UserFilterPipe } from './user-filter.pipe';
 import { UserformComponent } from './userform/userform.component';
 import { HomeComponent } from './home/home.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { setTheme } from 'ngx-bootstrap/utils';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,14 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    BsDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  constructor() {
+    setTheme('bs5'); // or 'bs4'
+  }
+}

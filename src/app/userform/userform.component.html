@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="col-5 offset-3 mt-4">
-            <form style="width: 600px;" [formGroup]="userForm" (ngSubmit)="FormSubmited(userForm)" class="shadow p-3 mb-5 bg-light rounded">
+        <div class="col-9 offset-3 my-5">
+            <form style="width: 500px;" [formGroup]="userForm" (ngSubmit)="FormSubmited(userForm)" class="shadow p-3  bg-light rounded">
                 <h3 class="text-danger">{{title}}</h3>
                 <div class="mb-3">
                     <label class="form-label">Name</label>
@@ -33,6 +33,7 @@
                         <p class="text-danger" *ngIf="userForm.controls['phoneNumber'].hasError('required')">This Field is required</p>
                     </div>
                 </div>
+                <h3 class="text-danger">Address Information</h3>
                 <div formGroupName="address">
                     <div class="mb-3">
                         <label class="form-label ">AddressLine1</label>
@@ -45,7 +46,7 @@
                         <label class="form-label">AddressLine2</label>
                         <input type="text" class="form-control p-2" formControlName="addressLine2" > 
                     </div>
-                    <div class="mb-3">
+                    <div class="">
                         <label class="form-label">City</label>
                         <input type="text" class="form-control p-2" formControlName="city" > 
                         <div class="" *ngIf="userForm.get('address.city')?.touched">
@@ -60,6 +61,12 @@
                 <button type="submit" class="btn btn-primary btn-sm me-3" >Submit</button>
                 <button type="reset" class="btn btn-secondary btn-sm" [routerLink]="['/']">Cancel</button>
             </form>
+        </div>
+        <div class="col-5 mt-3 shadow-lg" *ngIf="isEditMode">
+            <h3 class="text-light bg-success  p-2">Your Tasks</h3>
+            <ul>
+                <li *ngFor="let task of tasks">{{task.title}}-{{task.description}}</li>
+            </ul>
         </div>
     </div>
  

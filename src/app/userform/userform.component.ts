@@ -17,8 +17,9 @@ export class UserformComponent implements OnInit {
   isEditMode: boolean = false;
   title: string = 'Add New User';
   Uid: any;
+  tasks:any[]=[]
 
-  constructor(private fb: FormBuilder, private UserService: UserService, private router: Router, private route: ActivatedRoute, private tostr: ToastrService) {
+  constructor(private fb: FormBuilder, private UserService: UserService,private TaskService:TaskServiceService, private router: Router, private route: ActivatedRoute, private tostr: ToastrService) {
     this.Uid = this.route.snapshot.paramMap.get('id')
 
     console.log(this.Uid)
@@ -60,6 +61,7 @@ export class UserformComponent implements OnInit {
 
     if (this.isEditMode == true) {
       this.UserService.GetUserById(this.Uid).subscribe((d: any) => {
+        this.tasks=d.task
         let obj = {
           id: d.id,
           name: d.name,
@@ -78,6 +80,8 @@ export class UserformComponent implements OnInit {
         console.log(obj)
         this.userForm.setValue(obj)
       })
+
+      
     }
   }
 
