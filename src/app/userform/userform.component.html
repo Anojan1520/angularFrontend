@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-9 offset-3 my-5">
+        <div class="col m-4">
             <form style="width: 500px;" [formGroup]="userForm" (ngSubmit)="FormSubmited(userForm)" class="shadow p-3  bg-light rounded">
                 <h3 class="text-danger">{{title}}</h3>
                 <div class="mb-3">
@@ -62,7 +62,7 @@
                 <button type="reset" class="btn btn-secondary btn-sm" [routerLink]="['/']">Cancel</button>
             </form>
         </div>
-        <div class="col-5 mt-3 shadow-lg" *ngIf="isEditMode">
+        <div class="col-5 mt-3 shadow-lg p-0" *ngIf="isEditMode">
             <h3 class="text-light bg-success  p-2">Your Tasks</h3>
             <ul>
                 <li *ngFor="let task of tasks">{{task.title}}-{{task.description}}</li>
