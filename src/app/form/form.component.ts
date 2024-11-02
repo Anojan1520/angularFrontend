@@ -10,50 +10,53 @@ import { UserService } from '../user.service';
   styleUrl: './form.component.css'
 })
 export class FormComponent implements OnInit {
-      
-  
-   TaskForm:FormGroup
 
-   Users:any=[]
 
-   
+  TaskForm: FormGroup
 
-  constructor(private fb:FormBuilder ,private taskService:TaskServiceService,private router:Router,private UserTaskService:UserService){
-     this.TaskForm=fb.group({
-      title:['',[Validators.required]],
-      duedate:['',[Validators.required]],
-      description:['',[Validators.required]],
-      priority:['',[Validators.required]],
-      assigneeId:['',[Validators.required]],
-      checkLists:this.fb.array([new FormControl(null)])
-     })
+  Users: any = []
+
+
+
+  constructor(private fb: FormBuilder, private taskService: TaskServiceService, private router: Router, private UserTaskService: UserService) {
+    this.TaskForm = fb.group({
+      title: ['', [Validators.required]],
+      duedate: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      priority: ['', [Validators.required]],
+      assigneeId: ['', [Validators.required]],
+      checkList: this.fb.array([])
+    })
   }
   ngOnInit(): void {
-    this.UserTaskService.GetUser().subscribe((u:any)=>{
-           this.Users=u
+    this.UserTaskService.GetUser().subscribe((u: any) => {
+      this.Users = u
     })
   }
 
 
-  get checkLists(): FormArray {
-    return this.TaskForm.get('checkLists') as FormArray;
+  get checkList(): FormArray {
+    return this.TaskForm.get('checkList') as FormArray;
   }
 
   addChecklistItem(): void {
-    this.checkLists.push(new FormControl(null));
+    this.checkList.push(this.fb.group({
+      name: [''],
+      isDone: [false]
+    }));
   }
 
   removeChecklistItem(index: number): void {
-    this.checkLists.removeAt(index);
+    this.checkList.removeAt(index);
   }
 
 
-  FormSubmited(FormData:FormGroup){
+  FormSubmited(FormData: FormGroup) {
     console.log(FormData.value)
-       this.taskService.PostTask(FormData.value).subscribe(d=>{
-        alert("Task added Succesfully")
-        this.router.navigate(['/'])
-       })
+    this.taskService.PostTask(FormData.value).subscribe(d => {
+      alert("Task added Succesfully")
+      this.router.navigate(['/'])
+    })
   }
 
 }

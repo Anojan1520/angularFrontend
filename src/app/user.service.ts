@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
-  Url:string='https://localhost:7200/api/Users';
+  Url:string='http://localhost:5052/api/Users';
 
    GetUser(){
     return this.http.get<any[]>(this.Url)
