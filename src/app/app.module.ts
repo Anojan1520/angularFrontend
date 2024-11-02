@@ -1,24 +1,25 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { setTheme } from "ngx-bootstrap/utils";
+import { ToastrModule } from "ngx-toastr";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { EditComponent } from "./edit/edit.component";
+import { FormComponent } from "./form/form.component";
+import { HomeComponent } from "./home/home.component";
+import { TaskFilterPipe } from "./task-filter.pipe";
+import { TaskComponent } from "./task/task.component";
+import { UserFilterPipe } from "./user-filter.pipe";
+import { UserComponent } from "./user/user.component";
+import { SignInComponent } from "./UserAuthentication/sign-in/sign-in.component";
+import { SignUpComponent } from "./UserAuthentication/sign-up/sign-up.component";
+import { UserformComponent } from "./userform/userform.component";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { TaskComponent } from './task/task.component';
-import { TaskServiceService } from './task-service.service';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { FormComponent } from './form/form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TaskFilterPipe } from './task-filter.pipe';
-import { EditComponent } from './edit/edit.component';
-import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserComponent } from './user/user.component';
-import { UserFilterPipe } from './user-filter.pipe';
-import { UserformComponent } from './userform/userform.component';
-import { HomeComponent } from './home/home.component';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { setTheme } from 'ngx-bootstrap/utils';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { setTheme } from 'ngx-bootstrap/utils';
     UserComponent,
     UserFilterPipe,
     UserformComponent,
-    HomeComponent
+    HomeComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,6 @@ import { setTheme } from 'ngx-bootstrap/utils';
 export class AppModule { 
 
   constructor() {
-    setTheme('bs5'); // or 'bs4'
+    setTheme('bs5'); 
   }
 }

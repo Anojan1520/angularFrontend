@@ -1,0 +1,91 @@
+<div class="container-fluid d-flex justify-content-center mt-2 pt-5">
+    <div class="row shadow-lg p-3 mb-5 rounded">
+        <div class="col-6 ">
+            <form [formGroup]="userForm">
+                <h4 class="mb-3">Signup</h4>
+                <div class="mt-2">
+                    <div class="input-group " style="width: 350px;">
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control" placeholder="John Doe" formControlName="userName">
+
+                    </div>
+                    <div *ngIf="userForm.controls['userName'].touched">
+                        <p class="text-danger m-0" *ngIf="userForm.controls['userName'].hasError('required')">Fullname Field
+                            is required</p>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div class="input-group " style="width: 350px;">
+                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope"></i></span>
+                        <input type="text" class="form-control" placeholder="Your Email" formControlName="email">
+                    </div>
+                    <div *ngIf="userForm.controls['email'].touched">
+                        <p class="text-danger m-0" *ngIf="userForm.controls['email'].hasError('required')">Email Field is
+                            required</p>
+                        <p class="text-danger m-0" *ngIf="userForm.controls['email'].hasError('email')">Valid email
+                            address is required</p>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div class="input-group " style="width: 350px;">
+                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-lock"></i></span>
+                        <input type="text" class="form-control" placeholder="Password" formControlName="password">
+
+                    </div>
+                    <div *ngIf="userForm.controls['password'].touched">
+                        <p class="text-danger m-0" *ngIf="userForm.controls['password'].hasError('required')">Password Field
+                            is required</p>
+                        <p class="text-danger m-0" *ngIf="userForm.controls['password'].hasError('minlength')">Password
+                            must be at least 6 characters long </p>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div class="input-group mb-4" style="width: 350px;">
+                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-lock-fill"></i></span>
+                        <input type="text" class="form-control" placeholder="Repeat your password"
+                            formControlName="confirmPassword">
+
+                    </div>
+                    <div *ngIf="userForm.controls['confirmPassword'].touched">
+                        <p class="text-danger m-0" *ngIf="userForm.controls['confirmPassword'].hasError('required')">
+                            ConfirmPassword Field is required</p>
+                    </div>
+
+                </div>
+                <div class="mt-3">
+                    <div class="input-group flex-nowrap" style="width: 350px;">
+                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-badge"></i></span>
+                        <select class="form-select" aria-label="Default select example" formControlName="role">
+                            <option value="1">User</option>
+                            <option value="2">Manager</option>
+                        </select>
+                    </div>
+                    <div *ngIf="userForm.controls['role'].touched">
+                        <p class="text-danger m-0" *ngIf="userForm.controls['role'].hasError('required')">
+                            Role Field is required</p>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" >
+                        <label class="form-check-label" for="flexCheckChecked" formControlName="terms">
+                            I agree to all statements in Terms of service
+                        </label>
+                    </div>
+                    <div *ngIf="userForm.controls['terms'].touched">
+                        <p class="text-danger m-0" *ngIf="userForm.controls['terms'].hasError('required')">
+                            You must agree to the terms</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary my-2" style="padding: 5px 145px;"
+                    [disabled]="userForm.invalid">Register</button> <br>
+                <a [routerLink]="['/signin']" class="text-secondary ms-5 ps-5">I am already a member</a>
+            </form>
+
+        </div>
+        <div class="col-2 p-0">
+            <img src="images/signup1.png" alt="" height="330px" class="ms-3">
+        </div>
+    </div>
+</div>

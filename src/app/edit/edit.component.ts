@@ -66,7 +66,7 @@ export class EditComponent implements OnInit {
       this.toaster.success('Edit Succefully', '', {
         timeOut: 9000,
       })
-      this.router.navigate(['/'])
+      this.router.navigate(['task'])
     })
   }
 
