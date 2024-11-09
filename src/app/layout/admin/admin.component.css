@@ -1,0 +1,8 @@
+a{
+    text-decoration: none;
+}
+
+.active{
+    background-color: rgb(0, 109, 205);
+    width: 100%;
+}

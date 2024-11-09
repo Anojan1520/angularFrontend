@@ -11,14 +11,15 @@ export class AuthenticationService {
 
 
   regUrl: string = "http://localhost:5052/api/UserLogins/RegisterUser";
-  loginUrl: string = "http://localhost:5052/api/UserLogins/LoginUser?"
+  loginUrl: string = "http://localhost:5052/api/UserLogins/LoginUser"
 
 
-  registeration(data: any) {
-    return this.http.post(this.regUrl, data)
+  registeration(data: any,options:{ responseType: 'text' }) {
+    return this.http.post(this.regUrl, data,options)
   }
-  login(email: any, pass: any) {
-    return this.http.post(this.loginUrl + 'Email=' + email + 'Password=' + pass, null)
+
+  login(data:any ,options:{ responseType: 'text' }) {
+    return this.http.post(this.loginUrl , data ,options)
   }
 
 

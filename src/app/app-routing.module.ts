@@ -10,11 +10,13 @@ import { SignUpComponent } from './UserAuthentication/sign-up/sign-up.component'
 import { SignInComponent } from './UserAuthentication/sign-in/sign-in.component';
 import { AdminComponent } from './layout/admin/admin.component';
 import { UserLayoutComponent } from './layout/user-layout/user-layout.component';
+import { authGuard } from './authcard/auth.guard';
 
  const routes: Routes = [
   {
     path: 'Admin', 
     component: AdminComponent,
+    canActivate: [authGuard], 
     children: [
       { path: 'task', component: TaskComponent },
       { path: 'form', component: FormComponent },
@@ -24,13 +26,14 @@ import { UserLayoutComponent } from './layout/user-layout/user-layout.component'
       { path: 'user-form', component: UserformComponent },
       { path: 'home', component: HomeComponent }
     ]
+    
   },
   {
     path: '', 
     component: UserLayoutComponent,
     children:[
       { path: '', component: SignInComponent },
-      { path: 'Signup', component: SignUpComponent }
+      { path: 'signup', component: SignUpComponent }
     ]
   }
 ];

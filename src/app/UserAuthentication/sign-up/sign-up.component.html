@@ -1,7 +1,7 @@
 <div class="container-fluid d-flex justify-content-center mt-2 pt-5">
     <div class="row shadow-lg p-3 mb-5 rounded">
         <div class="col-6 ">
-            <form [formGroup]="userForm">
+            <form [formGroup]="userForm" (ngSubmit)="FormSubmit()">
                 <h4 class="mb-3">Signup</h4>
                 <div class="mt-2">
                     <div class="input-group " style="width: 350px;">

@@ -90,12 +90,12 @@ export class UserformComponent implements OnInit {
     if (this.isEditMode == false) {
       this.UserService.PostUser(FormData.value).subscribe(d => {
         this.tostr.success("Task added Succesfully")
-        this.router.navigate(['user'])
+        this.router.navigate(['Admin/user'])
       })
     } else if (this.isEditMode == true) {
       this.UserService.UpdateData(FormData.value).subscribe(d => {
         this.tostr.success('Edited SuccesFully')
-        this.router.navigate(['user'])
+        this.router.navigate(['Admin/user'])
 
       })
     }

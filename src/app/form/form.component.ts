@@ -55,7 +55,7 @@ export class FormComponent implements OnInit {
     console.log(FormData.value)
     this.taskService.PostTask(FormData.value).subscribe(d => {
       alert("Task added Succesfully")
-      this.router.navigate(['/'])
+      this.router.navigate(['task'])
     })
   }
 

@@ -36,7 +36,7 @@ export class TaskComponent implements OnInit {
     })
   }
   editTask(id:any){
-    this.router.navigate(['edit/'+id])
+    this.router.navigate(['Admin/edit/'+id])
   }
 
 
