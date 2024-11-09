@@ -19,6 +19,8 @@ import { UserComponent } from "./user/user.component";
 import { SignInComponent } from "./UserAuthentication/sign-in/sign-in.component";
 import { SignUpComponent } from "./UserAuthentication/sign-up/sign-up.component";
 import { UserformComponent } from "./userform/userform.component";
+import { AdminComponent } from './layout/admin/admin.component';
+import { UserLayoutComponent } from './layout/user-layout/user-layout.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { UserformComponent } from "./userform/userform.component";
     UserformComponent,
     HomeComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    AdminComponent,
+    UserLayoutComponent
   ],
   imports: [
     BrowserModule,

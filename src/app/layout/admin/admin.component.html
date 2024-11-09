@@ -1,0 +1,38 @@
+<div class="container-fluid p-0 m-0" style="background-color:rgba(255, 255, 255, 0.123); overflow-x: hidden;">
+    <!-- As a link -->
+    <nav class="py-1" style="background-color:slategray;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 pt-2 d-flex align-items-center">
+                    <img src="images/Screenshot 2024-10-26 234048.png" alt="" height="40px" style="border-radius: 10px;">
+                    <h3 class="text-light ms-1 mt-1">Unicom <i>Tic</i></h3>
+                </div>
+                <div class="col-3 offset-6  d-flex justify-content-between align-items-center">
+                    <input type="text" class="form-control me-3" placeholder="Search here..">
+                    <button class="btn btn-sm btn-outline-light fs-5">Search</button>
+                  </div>
+            </div>
+        </div>
+
+    </nav>
+    <div class="row">
+        <div class="col-2">
+            <nav class="pt-2 ps-2 bg-dark" style="min-height: 95vh; height: 100%;">
+                <div>
+                    <div>
+                        <h3 class="text-light px-4">Tasks Manager</h3>
+                        <hr class="text-light">
+                    </div>
+                    <div class="row ms-1 " style="width: 100%;">
+                        <a class=" text-light fs-6 activeStyle  ps-5 py-2 "style="width: 95%; border-radius: 5px;"  (click)="ChangeBackground($event,'Users')" [routerLink]="['/Admin/home']" ><i class="bi bi-house-door"></i> Home</a>
+                        <a class=" text-light fs-6 activeStyle ps-5  py-2 " style="width: 95%; border-radius: 5px;" (click)="ChangeBackground($event,'Users')" [routerLink]="['Admin/user']"><i class="bi bi-people"></i> Users</a>
+                        <a class=" text-light fs-6 activeStyle  ps-5 py-2 " style="width: 95%; border-radius: 5px;" (click)="ChangeBackground($event,'Users')" [routerLink]="['Admin/task']"><i class="bi bi-list-task"></i>  Tasks</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-9" >
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

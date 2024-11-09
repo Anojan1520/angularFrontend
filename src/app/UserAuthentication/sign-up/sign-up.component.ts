@@ -17,7 +17,7 @@ export class SignUpComponent {
       password:['',[Validators.required,Validators.minLength(6)]],
       confirmPassword:['',[Validators.required]],
       role:['1',Validators.required],
-      terms:['',Validators.required]
+      terms:[null,Validators.required]
     })
   }
 

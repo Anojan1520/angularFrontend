@@ -67,15 +67,16 @@
                 </div>
                 <div class="mt-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" >
-                        <label class="form-check-label" for="flexCheckChecked" formControlName="terms">
+                        <input class="form-check-input" type="checkbox" formControlName="terms" >
+                        <label class="form-check-label" for="flexCheckChecked" >
                             I agree to all statements in Terms of service
                         </label>
-                    </div>
-                    <div *ngIf="userForm.controls['terms'].touched">
+
                         <p class="text-danger m-0" *ngIf="userForm.controls['terms'].hasError('required')">
                             You must agree to the terms</p>
+                     
                     </div>
+                 
                 </div>
 
                 <button class="btn btn-primary my-2" style="padding: 5px 145px;"
