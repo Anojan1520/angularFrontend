@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
+
+  constructor(private router : Router) {
+  }
   ChangeBackground($event: MouseEvent, link: string) {
 
     let all_a=document.querySelectorAll('.activeStyle')
@@ -16,4 +20,11 @@ export class AdminComponent {
     target.classList.add('active')
 
   }
+
+
+  LogOut() {
+       localStorage.removeItem('jwt');
+       this.router.navigate(['']);
+
+    }
 }

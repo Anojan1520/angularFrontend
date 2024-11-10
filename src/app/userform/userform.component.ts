@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UserformComponent implements OnInit {
 
-
   userForm!: FormGroup;
   isEditMode: boolean = false;
   title: string = 'Add New User';
@@ -100,5 +99,12 @@ export class UserformComponent implements OnInit {
       })
     }
   }
+
+  goTask() {
+
+  this.router
+  }
+  
+  
 
 }

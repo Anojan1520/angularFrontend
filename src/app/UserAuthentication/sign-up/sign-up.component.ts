@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../Services/authentication.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class SignUpComponent {
   userForm: FormGroup;
 
-  constructor(private router:Router,private fb: FormBuilder, private UserAuth: AuthenticationService) {
+  constructor(private router:Router,private fb: FormBuilder, private UserAuth: AuthenticationService ,private toster:ToastrService) {
 
     this.userForm = this.fb.group({
       userName: ['', [Validators.required]],
@@ -28,18 +29,23 @@ export class SignUpComponent {
 
   FormSubmit(){
   
-    const registrationData = {
-      fullname: this.userForm.get('userName')?.value,   
-      email: this.userForm.get('email')?.value,        
-      password: this.userForm.get('password')?.value,    
-      role: Number(this.userForm.get('role')?.value)    
-    };
+    if (this.userForm.get('password')?.value === this.userForm.get('confirmPassword')?.value) {
+      const registrationData = {
+        fullname: this.userForm.get('userName')?.value,   
+        email: this.userForm.get('email')?.value,        
+        password: this.userForm.get('password')?.value,    
+        role: Number(this.userForm.get('role')?.value)    
+      };
+    
+      this.UserAuth.registeration(registrationData,{ responseType: 'text' }).subscribe((d:any) => {
+        console.log(d);
+        this.router.navigate([''])
   
-    this.UserAuth.registeration(registrationData,{ responseType: 'text' }).subscribe((d:any) => {
-      console.log(d);
-      this.router.navigate([''])
-
-    })
+      })
+    }else{
+      this.toster.error('Your Password not match')
+    }
+   
   }
 
 
